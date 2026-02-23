@@ -1,6 +1,7 @@
 package com.example.mohtadyapp.Hellper;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -41,6 +42,7 @@ public class DALAppWriteConnection {
     
     private Context context;
     private Gson gson;
+    private String lastDocumentSaveError = null;
     
     /**
      * منشئ الكلاس الرئيسي
@@ -480,6 +482,20 @@ public class DALAppWriteConnection {
     public String getCurrentUserId() {
         return currentUserId;
     }
+
+    /**
+     * تعيين معرف المستخدم الحالي (للاستخدام مع تسجيل دخول مخصص)
+     */
+    public void setCurrentUserId(String userId) {
+        this.currentUserId = userId;
+    }
+
+    /**
+     * تعيين البريد الإلكتروني أو المعرف للمستخدم الحالي
+     */
+    public void setCurrentUserEmail(String email) {
+        this.currentUserEmail = email;
+    }
     
     /**
      * الحصول على البريد الإلكتروني للمستخدم الحالي
@@ -726,6 +742,7 @@ public class DALAppWriteConnection {
             }
             
             
+            lastDocumentSaveError = null;
             ArrayList<T> savedItems = new ArrayList<>();
             int successCount = 0;
             
@@ -748,7 +765,7 @@ public class DALAppWriteConnection {
                     documentData.remove("$"); // إزالة أي حقول خاصة
                     documentData.remove("metadata"); // إزالة metadata - يسبب مشاكل
                     
-                    // تحويل "id" إلى اسم فريد حسب نوع الكائن
+                    // تحويل "id" إلى اسم فريد حسب نوع الكائن (للتوافق مع schema)
                     if (documentData.containsKey("id")) {
                         String className = item.getClass().getSimpleName().toLowerCase();
                         String newIdKey = className + "Id";
@@ -756,15 +773,14 @@ public class DALAppWriteConnection {
                         documentData.remove("id");
                     }
                     
-                    // ملاحظة: لا نضيف metadata لأن Appwrite يتطلب تعريف الحقول مسبقاً
-                    // يجب إضافة الحقول من لوحة التحكم Appwrite Console
-                    
                     boolean saved = saveDocument(tableName, actualCollectionId, documentId, documentData);
                     if (saved) {
+                        lastDocumentSaveError = null;
                         savedItems.add(item);
                         successCount++;
                     }
                 } catch (Exception e) {
+                    lastDocumentSaveError = e.getMessage() != null ? e.getMessage() : e.getClass().getSimpleName();
                 }
             }
             
@@ -772,7 +788,10 @@ public class DALAppWriteConnection {
                 String message = "تم حفظ " + successCount + " عنصر بنجاح من أصل " + dataList.size();
                 return new OperationResult<>(true, message, savedItems);
             } else {
-                return new OperationResult<>(false, "فشل في حفظ جميع العناصر");
+                String errMsg = (lastDocumentSaveError != null && !lastDocumentSaveError.isEmpty())
+                        ? lastDocumentSaveError : "فشل في حفظ جميع العناصر";
+                Log.e(TAG, "saveData failed: " + errMsg);
+                return new OperationResult<>(false, errMsg);
             }
             
         } catch (Exception e) {
@@ -1247,18 +1266,25 @@ public class DALAppWriteConnection {
             int responseCode = connection.getResponseCode();
             
             if (responseCode >= 200 && responseCode < 300) {
+                lastDocumentSaveError = null;
                 return true;
             } else {
                 String errorResponse = readErrorResponse(connection);
+                lastDocumentSaveError = errorResponse;
+                Log.e(TAG, "saveDocument error: " + errorResponse);
                 
                 // إصلاح schema errors: محاولة أخرى بدون schema validation
                 if (errorResponse.contains("Unknown attribute") || errorResponse.contains("document_invalid_structure")) {
-                    return saveWithoutSchemaValidation(tableName, collectionId, documentId, cleanData);
+                    boolean retryOk = saveWithoutSchemaValidation(tableName, collectionId, documentId, cleanData);
+                    if (retryOk) lastDocumentSaveError = null;
+                    return retryOk;
                 }
                 
                 return false;
             }
         } catch (Exception e) {
+            lastDocumentSaveError = e.getMessage() != null ? e.getMessage() : e.getClass().getSimpleName();
+            Log.e(TAG, "saveDocument exception", e);
             return false;
         }
     }
@@ -1311,12 +1337,17 @@ public class DALAppWriteConnection {
             int responseCode = connection.getResponseCode();
             
             if (responseCode >= 200 && responseCode < 300) {
+                lastDocumentSaveError = null;
                 return true;
             } else {
                 String errorResponse = readErrorResponse(connection);
+                lastDocumentSaveError = errorResponse;
+                Log.e(TAG, "saveWithoutSchemaValidation error: " + errorResponse);
                 return false;
             }
         } catch (Exception e) {
+            lastDocumentSaveError = e.getMessage() != null ? e.getMessage() : e.getClass().getSimpleName();
+            Log.e(TAG, "saveWithoutSchemaValidation exception", e);
             return false;
         }
     }

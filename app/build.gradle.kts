@@ -35,6 +35,10 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation(libs.navigation.fragment)
+    implementation(libs.navigation.ui)
+    implementation(libs.activity)
 
     // JSON handling
     implementation("com.google.code.gson:gson:2.10.1")
