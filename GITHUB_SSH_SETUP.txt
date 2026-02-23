@@ -1,0 +1,18 @@
+تم إعداد SSH بنجاح!
+
+=== المفتاح العام (انسخه وأضفه إلى GitHub) ===
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKbt/FEBekXgeJrMwvagT2Ug5CiLQd0G/XMuWBDXzWnX github-allergyprevention
+
+=== الخطوات لإضافة المفتاح إلى GitHub ===
+
+1. افتح: https://github.com/settings/ssh/new
+2. في "Title" اكتب: AllergyPrevention
+3. في "Key" الصق المفتاح أعلاه كاملاً
+4. اضغط "Add SSH key"
+
+=== بعد إضافة المفتاح ===
+
+جرّب: git push
+
+تم تغيير الـ remote من HTTPS إلى SSH تلقائياً.
