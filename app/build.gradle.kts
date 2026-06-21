@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.mohtadyapp"
+    namespace = "com.example.volunteerapp"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.mohtadyapp"
+        applicationId = "com.example.volunteerapp"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -39,6 +39,7 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(libs.activity)
+    implementation("androidx.viewpager2:viewpager2:1.1.0")
 
     // JSON handling
     implementation("com.google.code.gson:gson:2.10.1")

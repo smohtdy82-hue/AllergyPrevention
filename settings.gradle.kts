@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "FiveUntProjectBase"
+rootProject.name = "VolunteerApp"
 include(":app")

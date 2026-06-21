@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">تطوع</string>
+    <string name="app_name">تطوع وتداخل اجتماعي</string>
     <string name="choose_user_type">اختر نوع المستخدم</string>
     <string name="student">طالب</string>
     <string name="organization">مؤسسة</string>
@@ -22,13 +22,15 @@
     <string name="required_hours">الساعات المطلوبة</string>
     <string name="completed_hours">الساعات المنتهية</string>
     <string name="organizations">المؤسسات</string>
+    <string name="my_orgs_tab">مؤسساتي</string>
     <string name="my_applications">طلباتي</string>
     <string name="my_hours">ساعاتي</string>
     <string name="profile">الملف الشخصي</string>
+    <string name="nav_profile">البروفايل</string>
     <string name="requests">طلبات الطلاب</string>
     <string name="org_profile">إدارة المؤسسة</string>
     <string name="reports">التقارير</string>
-    <string name="apply">تقدم للانضمام</string>
+    <string name="apply">تقديم طلب</string>
     <string name="accept">قبول</string>
     <string name="reject">رفض</string>
     <string name="register_hours">تسجيل ساعات</string>
@@ -41,5 +43,73 @@
     <string name="confirm_password">تأكيد كلمة السر</string>
     <string name="take_photo">التقاط صورة</string>
     <string name="choose_from_gallery">اختيار من المعرض</string>
+    <string name="org_photos_title">صور المؤسسة (٣ صور)</string>
+    <string name="org_photos_hint">اضغط على مربع لاختيار الكاميرا أو المعرض أو حذف الصورة</string>
+    <string name="org_photo_slot_cd">صورة المؤسسة</string>
+    <string name="delete_photo">حذف الصورة</string>
+    <string name="photo_actions_title">الصورة</string>
     <string name="logout">تسجيل الخروج</string>
+    <string name="save_changes">حفظ التعديلات</string>
+    <string name="org_manage_subtitle">تعديل بيانات المؤسسة الظاهرة للطلاب</string>
+    <string name="email_readonly_hint">البريد المستخدم لتسجيل الدخول (لا يمكن تغييره من هنا)</string>
+    <string name="new_password_optional">كلمة سر جديدة (اختياري)</string>
+    <string name="loading_data">جاري التحميل…</string>
+    <string name="saved_successfully">تم الحفظ بنجاح</string>
+    <string name="passwords_not_match">كلمتا السر غير متطابقتين</string>
+    <string name="password_min_length">كلمة السر 6 أحرف على الأقل</string>
+
+    <!-- Opportunities -->
+    <string name="opportunities">فرص التطوع</string>
+    <string name="add_opportunity">إضافة فرصة تطوع</string>
+    <string name="opportunity_title">عنوان الفرصة</string>
+    <string name="location">الموقع</string>
+    <string name="no_opportunities">لا توجد فرص تطوع حالياً</string>
+    <string name="opportunity_details">تفاصيل الفرصة</string>
+    <string name="opportunity_hours_fmt">%d ساعة</string>
+    <string name="already_applied">تم التقديم مسبقاً</string>
+
+    <!-- Reports -->
+    <string name="report_student_title">تقرير ساعات التطوع</string>
+    <string name="report_org_title">تقرير المؤسسة</string>
+    <string name="report_total_accepted">إجمالي الساعات المقبولة: %d</string>
+    <string name="report_required">الساعات المطلوبة: %d</string>
+    <string name="report_completed" formatted="false">الساعات المكتملة: %d / %d</string>
+    <string name="report_volunteers_count">عدد المتطوعين: %d</string>
+    <string name="no_reports_data">لا توجد بيانات</string>
+
+    <!-- Splash -->
+    <string name="splash_subtitle">تطوع وتداخل اجتماعي</string>
+    <string name="complete_profile_later_hint">يمكنك إكمال بياناتك لاحقاً من الملف الشخصي</string>
+    <string name="tap_to_change_photo">اضغط لتغيير الصورة</string>
+    <string name="id_number_hint">رقم الهوية (9 خانات)</string>
+    <string name="id_number_error">رقم الهوية يجب أن يتكون من 9 أرقام</string>
+    <string name="select_birth_date">اختر تاريخ الميلاد</string>
+    <string name="age_too_young">العمر يجب أن يكون 8 سنوات على الأقل</string>
+    <string name="tab_join_requests">طلبات انضمام</string>
+    <string name="tab_hours_requests">طلبات ساعات</string>
+
+    <!-- Organization info -->
+    <string name="org_info_header">معلومات المؤسسة</string>
+
+    <!-- Report requests -->
+    <string name="request_report">طلب تقرير</string>
+    <string name="tab_report_requests">طلبات تقارير</string>
+    <string name="report_request_sent">تم إرسال طلب التقرير</string>
+    <string name="no_accepted_orgs">لا توجد مؤسسات مقبولة لطلب تقرير منها</string>
+    <string name="choose_org_for_report">اختر المؤسسة لطلب التقرير</string>
+    <string name="generate_pdf">إنشاء PDF ومشاركة</string>
+    <string name="no_report_requests">لا توجد طلبات تقارير</string>
+    <string name="pdf_shared">تم إنشاء التقرير</string>
+    <string name="pdf_error">فشل إنشاء التقرير</string>
+    <string name="download_share_report">تحميل ومشاركة التقرير</string>
+    <string name="report_status_pending">قيد الانتظار</string>
+    <string name="report_status_approved">تمت الموافقة</string>
+    <string name="volunteer_hours_report">تقرير ساعات التطوع</string>
+    <string name="student_name_label">اسم الطالب:</string>
+    <string name="student_id_label">رقم الهوية:</string>
+    <string name="org_name_label">المؤسسة:</string>
+    <string name="date_label">التاريخ</string>
+    <string name="description_label">الوصف</string>
+    <string name="hours_label">الساعات</string>
+    <string name="total_label">المجموع:</string>
 </resources>

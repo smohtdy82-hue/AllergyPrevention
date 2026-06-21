@@ -1,9 +1,33 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.mohtadyapp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.VolunteerApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/volunteer_primary</item>
+        <item name="colorPrimaryDark">@color/volunteer_primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/volunteer_primary_light</item>
+        <item name="colorOnPrimaryContainer">@color/volunteer_primary_dark</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="textInputStyle">@style/RoundedTextInputLayout</item>
     </style>
 
-    <style name="Theme.mohtadyapp" parent="Base.Theme.mohtadyapp" />
+    <style name="Theme.VolunteerApp" parent="Base.Theme.VolunteerApp" />
+
+    <style name="RoundedTextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="shapeAppearanceOverlay">@style/RoundedInputShape</item>
+    </style>
+
+    <style name="RoundedInputShape" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="RoundedExposedDropdown" parent="Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="shapeAppearanceOverlay">@style/RoundedInputShape</item>
+    </style>
+    <style name="ToolbarWhiteText" parent="ThemeOverlay.Material3.ActionBar">
+        <item name="actionMenuTextColor">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
 </resources>

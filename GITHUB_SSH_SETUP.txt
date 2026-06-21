@@ -7,7 +7,7 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKbt/FEBekXgeJrMwvagT2Ug5CiLQd0G/XMuWBDXzWnX
 === الخطوات لإضافة المفتاح إلى GitHub ===
 
 1. افتح: https://github.com/settings/ssh/new
-2. في "Title" اكتب: AllergyPrevention
+2. في "Title" اكتب: VolunteerApp
 3. في "Key" الصق المفتاح أعلاه كاملاً
 4. اضغط "Add SSH key"
 

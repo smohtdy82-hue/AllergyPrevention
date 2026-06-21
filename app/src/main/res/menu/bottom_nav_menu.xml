@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- القائمة السفلية للطالب -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav_organizations"
-        android:icon="@android:drawable/ic_menu_search"
-        android:title="@string/organizations" />
+        android:id="@+id/nav_opportunities"
+        android:icon="@drawable/ic_nav_organizations"
+        android:title="@string/opportunities" />
     <item
-        android:id="@+id/nav_my_applications"
-        android:icon="@android:drawable/ic_menu_agenda"
+        android:id="@+id/nav_my_orgs"
+        android:icon="@drawable/ic_nav_my_orgs"
         android:title="@string/my_applications" />
     <item
-        android:id="@+id/nav_my_hours"
-        android:icon="@android:drawable/ic_menu_edit"
-        android:title="@string/my_hours" />
+        android:id="@+id/nav_student_reports"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:title="@string/reports" />
     <item
         android:id="@+id/nav_profile"
-        android:icon="@android:drawable/ic_menu_preferences"
-        android:title="@string/profile" />
+        android:icon="@drawable/ic_nav_person"
+        android:title="@string/nav_profile" />
 </menu>
